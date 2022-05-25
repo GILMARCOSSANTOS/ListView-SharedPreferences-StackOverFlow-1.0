@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ListView e SharedPreferences - StackOverFlow</string>
+    <string name="digite_seu_nome">Digite seu Nome</string>
+    <string name="enter_your_number">Enter your Number</string>
+    <string name="type_your_name">Type your Name</string>
+</resources>
