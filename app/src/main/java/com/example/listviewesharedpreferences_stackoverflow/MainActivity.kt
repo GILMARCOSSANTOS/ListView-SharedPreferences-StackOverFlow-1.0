@@ -53,14 +53,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun addInformations() {
 
-        dataArrayList!!.add(editTextName.text.toString() + " : " + editTextNumber.text.toString())
-        adapter!!.notifyDataSetChanged()
-        val elemento = prefe1.edit()
-        elemento.putString(editTextName.text.toString(), editTextNumber.text.toString())
-        elemento.apply()
-        editTextName.setText("")
-        editTextNumber.setText("")
+        if (editTextName.text.toString() != "" && editTextNumber.text.toString() != ""){
 
+            dataArrayList!!.add(editTextName.text.toString() + " : " + editTextNumber.text.toString())
+            adapter!!.notifyDataSetChanged()
+            val elemento = prefe1.edit()
+            elemento.putString(editTextName.text.toString(), editTextNumber.text.toString())
+            elemento.apply()
+            editTextName.setText("")
+            editTextNumber.setText("")
+        }
     }
 
     private fun deleteInformation(){
@@ -68,8 +70,8 @@ class MainActivity : AppCompatActivity() {
         listView.onItemLongClickListener =
             OnItemLongClickListener { adapterView, view, i, l ->
                 val dialogo1 = AlertDialog.Builder(this@MainActivity)
-                dialogo1.setTitle("Importante")
-                dialogo1.setMessage("¿ Elimina este teléfono ?")
+                dialogo1.setTitle("ATENÇÃO!")
+                dialogo1.setMessage("Elimina esta informação?")
                 dialogo1.setCancelable(false)
                 dialogo1.setPositiveButton(
                     "Confirmar"
